@@ -14,7 +14,7 @@ func GetJsonFromReadCloserWithLimitSize (body io.ReadCloser, limit int64) (jsonO
 		return
 	} else {
     jsonObj = make(map[string]interface{})
-    json.Unmarshal(buff, &jsonObj)
+    json.Unmarshal(jsonByteArray, &jsonObj)
     return
   }
   return
