@@ -7,7 +7,7 @@ import (
 	"log"
 )
 
-func getJsonFromReadCloserWithLimitSize (body io.ReadCloser, limit int64) (jsonObj map[string]interface{}, err error){
+func GetJsonFromReadCloserWithLimitSize (body io.ReadCloser, limit int64) (jsonObj map[string]interface{}, err error){
   buff, err := ioutil.ReadAll(io.LimitReader(body, limit))
   if err != nil {
     log.Println(err)
@@ -20,7 +20,7 @@ func getJsonFromReadCloserWithLimitSize (body io.ReadCloser, limit int64) (jsonO
   return
 }
 
-func getJsonFromReadCloser (body io.ReadCloser) (jsonObj map[string]interface{}, err error){
-  jsonObj, err = getJsonFromReadCloserWithLimitSize(body, 1024)
+func GetJsonFromReadCloser (body io.ReadCloser) (jsonObj map[string]interface{}, err error){
+  jsonObj, err = GetJsonFromReadCloserWithLimitSize(body, 1024)
 	return
 }
