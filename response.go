@@ -1,7 +1,14 @@
 package HttpSupplement
 
+import (
+	"encoding/json"
+	"io"
+	"io/ioutil"
+	"log"
+)
+
 func getJsonFromReadCloserWithLimitSize (body io.ReadCloser, limit int) (jsonObj map[string]interface{}, err error){
-  buff, err := ioutil.ReadAll(io.LimitReader(resp.Body, limit))
+  buff, err := ioutil.ReadAll(io.LimitReader(body, limit))
   if err != nil {
     log.Println(err)
 		return
@@ -15,4 +22,5 @@ func getJsonFromReadCloserWithLimitSize (body io.ReadCloser, limit int) (jsonObj
 
 func getJsonFromReadCloser (body io.ReadCloser) (jsonObj map[string]interface{}, err error){
   jsonObj, err = getJsonFromReadCloserWithLimitSize(body, 1024)
+	return
 }
