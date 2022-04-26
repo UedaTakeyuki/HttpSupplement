@@ -20,7 +20,7 @@ func GetJsonFromReadCloserWithLimitSize (body io.ReadCloser, limit int64) (jsonO
   return
 }
 
-func GetJsonFromReadCloser (body io.ReadCloser) (jsonObj map[string]interface{}, err error){
-  jsonObj, _, err = GetJsonFromReadCloserWithLimitSize(body, 1024)
+func GetJsonFromReadCloser (body io.ReadCloser) (jsonObj map[string]interface{}, jsonByteArray []byte, err error){
+  jsonObj, jsonByteArray, err = GetJsonFromReadCloserWithLimitSize(body, 1024)
 	return
 }
