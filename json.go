@@ -6,7 +6,7 @@ package HttpSupplement
    An Int64 data get converted to Float64 by Json marshaller.
    So, convert back to Int64.
 */
-func ConvertInt64IfFloat64(in interface{})(out interface{){
+func ConvertToInt64IfFloat64(in interface{})(out interface{){
   	switch v := in.(type) {
 		case float64:
 			out = int64(v)
